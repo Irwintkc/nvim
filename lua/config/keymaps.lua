@@ -100,3 +100,10 @@ vim.keymap.set("n", "<M-I>", insert_r_chunk, {
   noremap = true,
   desc = "Insert R code chunk",
 })
+vim.keymap.set("n", "<leader>y", function()
+  require("osc52").copy_operator()
+end, { expr = true })
+
+vim.keymap.set("v", "<leader>y", function()
+  require("osc52").copy_visual()
+end)

@@ -13,7 +13,12 @@ return {
         "markdown_inline",
       }
 
-      opts.highlight = { enable = true }
+      opts.ignore_install = { "latex", "tex" }
+
+      opts.highlight = opts.highlight or {}
+      opts.highlight.enable = true
+      opts.highlight.disable = { "latex", "tex" }
+
       opts.auto_install = false
 
       opts.install = opts.install or {}

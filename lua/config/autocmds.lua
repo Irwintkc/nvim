@@ -121,7 +121,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.py",
   callback = function()
     local pos = vim.api.nvim_win_get_cursor(0) -- save cursor
-    vim.cmd("normal! gg=G")
+    -- vim.cmd("normal! gg=G")
     vim.api.nvim_win_set_cursor(0, pos) -- restore cursor
   end,
 })
@@ -136,6 +136,21 @@ vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter", "BufEnter" }, {
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ffffff", bold = true, bg = "NONE" })
   end,
 })
+
+vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter", "LspAttach" }, {
+
+  callback = function()
+    vim.api.nvim_set_hl(0, "LspInlayHint", {
+
+      fg = "#6e848f",
+
+      bg = "#313244",
+
+      italic = false,
+    })
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 
   callback = function(args)
